@@ -33,4 +33,22 @@ function uniqueInOrder($sequence) {
 print_r(uniqueInOrder('AAAABBBCCDAABBB'));  // ['A', 'B', 'C', 'D', 'A', 'B']
 print_r(uniqueInOrder('ABBCcAD'));          // ['A', 'B', 'C', 'c', 'A', 'D']
 print_r(uniqueInOrder([1, 2, 2, 3, 3]));    // [1, 2, 3]
+
+
+// Problem: `most_occurrence` is a program that takes a word and returns the character (also known as letter) 
+// that appears the most in the word.
+function most_occurence($word) {
+    $word = str_split($word);
+    $count = array_count_values($word);
+    $max = max($count);
+
+    $result = [];
+    foreach ($count as $char => $freq) {
+        if ($freq === $max) {
+            $result[] = [$char, $freq];
+        }
+    }
+
+    return $result;
+}
 ?>
