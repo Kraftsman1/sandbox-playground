@@ -93,6 +93,17 @@ assignTasksToPeople($people, $tasks);
 print_r($people);
 print_r($tasks);
 
+// Problem: `nameToInitials` is a program that takes a name and returns the initials of the name.
+function nameToInitials($name) {
+    // Split the name by space into an array of two words
+    $nameParts = explode(' ', $name);
+    
+    // Get the first character of each part, convert to uppercase, and join with a dot
+    $initials = strtoupper($nameParts[0][0]) . '.' . strtoupper($nameParts[1][0]);
+    
+    return $initials;
+}
+
 
 
 ?>
