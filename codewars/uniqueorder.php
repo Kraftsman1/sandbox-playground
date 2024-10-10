@@ -51,4 +51,48 @@ function most_occurence($word) {
 
     return $result;
 }
+
+
+// create a function to assign tasks based on who has the least amount of tasks
+function assignTasksToPeople(&$people, &$tasks) {
+    foreach ($tasks as &$task) {
+        // Find the person with the least amount of tasks
+        $person = array_reduce($people, function ($prev, $curr) {
+            return $prev['tasks'] < $curr['tasks'] ? $prev : $curr;
+        });
+
+        // Assign the task to the person and increment their task count
+        foreach ($people as &$p) {
+            if ($p['name'] == $person['name']) {
+                $p['tasks']++;
+                break;
+            }
+        }
+        
+        // Assign the person's name to the task
+        $task['person'] = $person['name'];
+    }
+}
+
+// Sample data
+$people = [
+    ['name' => 'Asmawu', 'tasks' => 3],
+    ['name' => 'Charles', 'tasks' => 5],
+    ['name' => 'Readdah', 'tasks' => 4]
+];
+
+$tasks = [
+    ['name' => 'task 1'],
+    ['name' => 'task 2']
+];
+
+// Call the function
+assignTasksToPeople($people, $tasks);
+
+// Output the result
+print_r($people);
+print_r($tasks);
+
+
+
 ?>
