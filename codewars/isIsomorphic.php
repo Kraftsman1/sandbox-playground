@@ -67,6 +67,44 @@ function split_pairs($str) {
 print_r(split_pairs('abc'));  // Output: Array ( [0] => ab [1] => c_ )
 print_r(split_pairs('abcd')); // Output: Array ( [0] => ab [1] => cd )
 
+// identify duplicate objects from an array based on specific
+// properties (defined in the keys array).
+// The function should return an array of duplicate objects.
+function find_duplicates($objs, $keys) {
+    $seen = [];
+    $duplicates = [];
+
+    foreach ($objs as $obj) {
+        // Build a composite key based on the properties defined in $keys
+        $composite_key = '';
+        foreach ($keys as $key) {
+            if (isset($obj[$key])) {
+                $composite_key .= $obj[$key] . '-';
+            }
+        }
+
+        // If the composite key has been seen before, it is a duplicate
+        if (isset($seen[$composite_key])) {
+            $duplicates[] = $obj;
+        } else {
+            $seen[$composite_key] = true;
+        }
+    }
+
+    return $duplicates;
+}
+
+// Example usage:
+$objs = [
+    ['name' => 'John', 'age' => 25, 'city' => 'New York'],
+    ['name' => 'Jane', 'age' => 30, 'city' => 'Los Angeles'],
+    ['name' => 'John', 'age' => 25, 'city' => 'New York'],
+    ['name' => 'Doe', 'age' => 25, 'city' => 'New York']
+];
+
+$keys = ['name', 'age'];
+
+print_r(find_duplicates($objs, $keys));
 
 
 ?>
