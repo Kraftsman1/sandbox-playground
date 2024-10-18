@@ -128,5 +128,18 @@ $nums = [2, 7, 11, 15];
 $target = 9;
 print_r(twoSum($nums, $target));
 
+// Write a function that checks if a given string is a palindrome.
+// Input: "racecar"
+// Output: true
+function isPalindrome($str) {
+    $str = strtolower(preg_replace("/[^A-Za-z0-9]/", '', $str));  // Remove non-alphanumeric characters and make lowercase
+    return $str === strrev($str);
+}
+
+// Example usage:
+$str = "Racecar";
+echo isPalindrome($str) ? "true" : "false";  // Output: true
+
+
 
 ?>
