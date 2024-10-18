@@ -106,5 +106,27 @@ $keys = ['name', 'age'];
 
 print_r(find_duplicates($objs, $keys));
 
+// Given an array of integers, return the indices of the two numbers that add up to a specific target.
+// Input: [2, 7, 11, 15], target = 9
+// Output: [0, 1]
+function twoSum($nums, $target) {
+    $map = [];
+    
+    for ($i = 0; $i < count($nums); $i++) {
+        $complement = $target - $nums[$i];
+        if (isset($map[$complement])) {
+            return [$map[$complement], $i];
+        }
+        $map[$nums[$i]] = $i;
+    }
+    
+    return [];
+}
+
+// Example usage:
+$nums = [2, 7, 11, 15];
+$target = 9;
+print_r(twoSum($nums, $target));
+
 
 ?>
