@@ -140,6 +140,30 @@ function isPalindrome($str) {
 $str = "Racecar";
 echo isPalindrome($str) ? "true" : "false";  // Output: true
 
+// Write a function to return the nth Fibonacci number.
+// Input: 6
+// Output: 8
+function fibonacci($n) {
+    if ($n <= 1) {
+        return $n;
+    }
+    
+    $a = 0;
+    $b = 1;
+    
+    for ($i = 2; $i <= $n; $i++) {
+        $temp = $a + $b;
+        $a = $b;
+        $b = $temp;
+    }
+    
+    return $b;
+}
+
+// Example usage:
+$n = 6;
+echo fibonacci($n);  // Output: 8
+
 
 
 ?>
