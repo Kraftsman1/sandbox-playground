@@ -164,6 +164,42 @@ function fibonacci($n) {
 $n = 6;
 echo fibonacci($n);  // Output: 8
 
+// Write a function that merges two sorted arrays into one sorted array.
+// Input: [1, 3, 5], [2, 4, 6]
+// Output: [1, 2, 3, 4, 5, 6]
+function mergeSortedArrays($arr1, $arr2) {
+    $i = 0;
+    $j = 0;
+    $result = [];
+    
+    while ($i < count($arr1) && $j < count($arr2)) {
+        if ($arr1[$i] < $arr2[$j]) {
+            $result[] = $arr1[$i];
+            $i++;
+        } else {
+            $result[] = $arr2[$j];
+            $j++;
+        }
+    }
+    
+    while ($i < count($arr1)) {
+        $result[] = $arr1[$i];
+        $i++;
+    }
+    
+    while ($j < count($arr2)) {
+        $result[] = $arr2[$j];
+        $j++;
+    }
+    
+    return $result;
+}
+
+// Example usage:
+$arr1 = [1, 3, 5];
+$arr2 = [2, 4, 6];
+print_r(mergeSortedArrays($arr1, $arr2));
+
 
 
 ?>
