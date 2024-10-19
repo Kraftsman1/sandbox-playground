@@ -200,6 +200,34 @@ $arr1 = [1, 3, 5];
 $arr2 = [2, 4, 6];
 print_r(mergeSortedArrays($arr1, $arr2));
 
+// Given a string containing just the characters (, ), {, }, [, and ], determine if the input string is valid.
+// A valid string must follow these rules:
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Input: "()[]{}"
+// Output: true
+function isValid($s) {
+    $stack = [];
+    $map = ['(' => ')', '{' => '}', '[' => ']'];
+    
+    for ($i = 0; $i < strlen($s); $i++) {
+        $char = $s[$i];
+        if (isset($map[$char])) {
+            array_push($stack, $char);
+        } else {
+            if (empty($stack) || $map[array_pop($stack)] !== $char) {
+                return false;
+            }
+        }
+    }
+    
+    return empty($stack);
+}
+
+// Example usage:
+$s = "()[]{}";
+echo isValid($s) ? "true" : "false";  // Output: true
+
 
 
 ?>
