@@ -247,6 +247,27 @@ function findLargest($arr) {
 $arr = [10, 20, 30, 5, 40];
 echo findLargest($arr);  // Output: 40
 
+// Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+// Input: "hello world"
+// Output: 3
+function countVowels($str) {
+    $vowelCount = 0;
+    $vowels = ['a', 'e', 'i', 'o', 'u'];
+    $str = strtolower($str);
+    
+    for ($i = 0; $i < strlen($str); $i++) {
+        if (in_array($str[$i], $vowels)) {
+            $vowelCount++;
+        }
+    }
+    
+    return $vowelCount;
+}
+
+// Example usage:
+$str = "hello world";
+echo countVowels($str);  // Output: 3
+
 
 
 ?>
