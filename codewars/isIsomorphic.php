@@ -228,6 +228,25 @@ function isValid($s) {
 $s = "()[]{}";
 echo isValid($s) ? "true" : "false";  // Output: true
 
+// Write a function to find the largest number in an array.
+// Input: [10, 20, 30, 5, 40]
+// Output: 40
+function findLargest($arr) {
+    $largest = $arr[0];
+    
+    for ($i = 1; $i < count($arr); $i++) {
+        if ($arr[$i] > $largest) {
+            $largest = $arr[$i];
+        }
+    }
+    
+    return $largest;
+}
+
+// Example usage:
+$arr = [10, 20, 30, 5, 40];
+echo findLargest($arr);  // Output: 40
+
 
 
 ?>
